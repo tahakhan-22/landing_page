@@ -12,6 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', handleScroll);
     handleScroll(); // Init
 
+    // Hamburger menu toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburgerBtn.addEventListener('click', () => {
+        hamburgerBtn.classList.toggle('open');
+        mobileNav.classList.toggle('open');
+    });
+
+    // Close mobile nav when a link is clicked
+    mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburgerBtn.classList.remove('open');
+            mobileNav.classList.remove('open');
+        });
+    });
+
     // Vitals simulation (Randomly updating HR and SpO2 in the mockup)
     const hrElements = document.querySelectorAll('.value.hr');
     const spo2Elements = document.querySelectorAll('.value.spo2');

@@ -803,6 +803,88 @@ footer {
 }
 
 /* Responsive */
+
+/* Hamburger button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.4rem;
+    z-index: 200;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled .hamburger span {
+    background: var(--clr-text);
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Mobile nav overlay */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(160deg, #0EA5A4, #14B8A6);
+    padding: 2rem 1.5rem;
+    z-index: 99;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.mobile-nav.open {
+    display: flex;
+}
+
+.mobile-nav-link {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+.mobile-nav-link:hover {
+    color: #fff;
+    opacity: 0.8;
+}
+
+/* Mohid avatar zoom */
+#mohid-img {
+    transform: scale(1.35);
+    object-position: center 15%;
+}
+
+.team-card:hover #mohid-img {
+    transform: scale(1.5);
+}
+
 @media (max-width: 992px) {
     .hero, .ecosystem {
         grid-template-columns: 1fr;
@@ -834,7 +916,101 @@ footer {
 
 @media (max-width: 768px) {
     .nav-links { display: none; }
-    .hero-title { font-size: 2.5rem; }
-    .hero-cta { flex-direction: column; }
-    .footer-content { flex-direction: column; gap: 2rem; }
+    .nav-actions { display: none; }
+    .hamburger { display: flex; }
+
+    section {
+        padding: 6rem 1.25rem 3rem;
+    }
+
+    .hero {
+        padding-top: 7rem;
+        min-height: auto;
+    }
+
+    .hero-title { font-size: 2.2rem; }
+
+    .hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .glass-panel {
+        max-width: 100%;
+        transform: none;
+    }
+
+    .glass-panel:hover {
+        transform: none;
+    }
+
+    .section-header h2 { font-size: 2rem; }
+
+    .showcase-content h3 { font-size: 1.6rem; }
+
+    .phone-frame {
+        max-width: 220px;
+    }
+
+    .team-grid {
+        grid-template-columns: 1fr;
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ecosystem {
+        padding-bottom: 3rem;
+    }
+
+    .ecosystem h2 { font-size: 2rem; }
+
+    .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title { font-size: 1.9rem; }
+
+    .badge { font-size: 0.78rem; }
+
+    .btn-large {
+        padding: 0.7rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 5.5rem 1rem 2.5rem;
+    }
+
+    .section-header h2 { font-size: 1.75rem; }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .team-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .footer-content {
+        padding: 0 0.5rem;
+    }
 }
